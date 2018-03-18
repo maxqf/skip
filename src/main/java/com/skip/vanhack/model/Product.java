@@ -3,16 +3,16 @@ package com.skip.vanhack.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
-/**
- * The persistent class for the product database table.
- * 
- */
 @Entity
-@NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
+@Table(name = "product")
+@EntityListeners(AuditingEntityListener.class)
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 

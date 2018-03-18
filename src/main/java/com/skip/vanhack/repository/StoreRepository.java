@@ -15,7 +15,4 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
 	
 	@Query("SELECT c FROM Store c WHERE c.name like %?1%")
 	List<Store> findByName(String name);
-	
-	/*@Query("SELECT c FROM Store c WHERE c.storeId = ?1")
-	List<Store> findByStoreId(String storeId);*/
 }
