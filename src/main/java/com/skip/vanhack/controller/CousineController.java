@@ -29,6 +29,25 @@ public class CousineController {
 	@Autowired
 	StoreRepository StoreRepository;
 
+	@GetMapping("/Cousine")
+	public List<Cousine> getAllCousine() {
+		return CousineRepository.findAll();
+	}
+	
+	@GetMapping("/Cousine/search/{searchText}")
+	public List<Cousine> searchText(@PathVariable(value = "searchText") String searchText) {
+		
+		return CousineRepository.findByName(searchText);
+	}
+	
+	@GetMapping("/Cousine/{cousineId}/stores")
+	public List<Store> searchText(@PathVariable(value = "cousineId") long cousineId) {
+		
+		return StoreRepository.findByCousineId(cousineId);
+	}
+	
+	//Extra methods below.
+	
 	@PostMapping("/Cousine")
 	public Cousine createCousine(@Valid @RequestBody Cousine Cousine) {
 
@@ -50,21 +69,6 @@ public class CousineController {
 		return ResponseEntity.ok().build();
 	}
 
-	@GetMapping("/Cousine")
-	public List<Cousine> getAllCousine() {
-		return CousineRepository.findAll();
-	}
-
-	@GetMapping("/Cousine/search/{searchText}")
-	public List<Cousine> searchText(@PathVariable(value = "searchText") String searchText) {
-		
-		return CousineRepository.findByName(searchText);
-	}
 	
-	@GetMapping("/Cousine/{cousineId}/stores")
-	public List<Store> searchText(@PathVariable(value = "cousineId") long cousineId) {
-		
-		return StoreRepository.findByCousineId(cousineId);
-	}
 	
 }
