@@ -70,4 +70,26 @@ public class Product implements Serializable {
 		this.storeId = storeId;
 	}
 
+//	public List<Orderitem> getOrderitems() {
+//		return this.orderitems;
+//	}
+//
+//	public void setOrderitems(List<Orderitem> orderitems) {
+//		this.orderitems = orderitems;
+//	}
+//
+//	public Orderitem addOrderitem(Orderitem orderitem) {
+//		getOrderitems().add(orderitem);
+//		orderitem.setProduct(this);
+//
+//		return orderitem;
+//	}
+//
+//	public Orderitem removeOrderitem(Orderitem orderitem) {
+//		getOrderitems().remove(orderitem);
+//		orderitem.setProduct(null);
+//
+//		return orderitem;
+//	}
+
 }

@@ -65,4 +65,40 @@ public class CustomerController {
         return CustomerRepository.save(Customer);
     }
 
+    /*
+    @GetMapping("/Customer/{id}")
+    public Customer getCustomerById(@PathVariable(value = "id") Long CustomerId) {
+    	
+    	Customer customer = CustomerRepository.findById(CustomerId)
+    			.orElseThrow(() -> new ResourceNotFoundException("Customer", "id", CustomerId));
+    	
+        return customer;
+    }*/
+
+    /*
+    @PutMapping("/Customer/{id}")
+    public Customer updateCustomer(@PathVariable(value = "id") Long CustomerId,
+                                           @Valid @RequestBody Customer CustomerDetails) {
+
+        Customer Customer = CustomerRepository.findById(CustomerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "id", CustomerId));
+
+        Customer updatedCustomer = CustomerRepository.save(Customer);
+        return updatedCustomer;
+    }
+    */
+
+    /*
+ 	@DeleteMapping("/Customer/{id}")
+     
+	public ResponseEntity<?> deleteCustomer(@PathVariable(value = "id") Long CustomerId) {
+    Customer Customer = CustomerRepository.findById(CustomerId)
+            .orElseThrow(() -> new ResourceNotFoundException("Customer", "id", CustomerId));
+
+    CustomerRepository.delete(Customer);
+
+    return ResponseEntity.ok().build();
+       
+    } 
+    */
 }
