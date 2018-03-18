@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skip.vanhack.exception.CustomValidationException;
 import com.skip.vanhack.model.Cousine;
+import com.skip.vanhack.model.Store;
 import com.skip.vanhack.repository.CousineRepository;
+import com.skip.vanhack.repository.StoreRepository;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -23,7 +25,9 @@ public class CousineController {
 
 	@Autowired
 	CousineRepository CousineRepository;
-
+	
+	@Autowired
+	StoreRepository StoreRepository;
 
 	@PostMapping("/Cousine")
 	public Cousine createCousine(@Valid @RequestBody Cousine Cousine) {
@@ -55,6 +59,12 @@ public class CousineController {
 	public List<Cousine> searchText(@PathVariable(value = "searchText") String searchText) {
 		
 		return CousineRepository.findByName(searchText);
+	}
+	
+	@GetMapping("/Cousine/{cousineId}/stores")
+	public List<Store> searchText(@PathVariable(value = "cousineId") long cousineId) {
+		
+		return StoreRepository.findByCousineId(cousineId);
 	}
 	
 }
