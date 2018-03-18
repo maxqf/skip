@@ -59,7 +59,7 @@ public class CustomerController {
     @PostMapping("/Customer")
     public Customer createCustomer(@Valid @RequestBody Customer Customer) {
     	    	        
-    	if(CustomerRepository.findByEmail(Customer.getEmail()) != null)
+    	if(!CustomerRepository.findByEmail(Customer.getEmail()).isEmpty())
     		throw new CustomValidationException("Customer", "email", "There is already an account with this email!");    	
     	
         return CustomerRepository.save(Customer);

@@ -72,7 +72,5 @@ public class StoreController {
 		}
 
 		return ResponseEntity.ok().build();
-	}
-
-	
+	}	
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.skip.vanhack.exception.CustomValidationException;
 import com.skip.vanhack.exception.ResourceNotFoundException;
 import com.skip.vanhack.model.Order;
 import com.skip.vanhack.model.OrderItem;
@@ -63,6 +64,10 @@ public class OrderController {
 				orderItem.setTotal(orderItem.getPrice() * orderItem.getQuantity());
 				
 				OrderItemRepository.save(orderItem);
+			}else {
+				
+				throw new CustomValidationException("Product", 
+						"productId", "You must provide a valid productID"); 
 			}			
 		}
 		
