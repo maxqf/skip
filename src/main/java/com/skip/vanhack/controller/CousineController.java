@@ -46,8 +46,6 @@ public class CousineController {
 		return StoreRepository.findByCousineId(cousineId);
 	}
 	
-	//Extra methods below.
-	
 	@PostMapping("/Cousine")
 	public Cousine createCousine(@Valid @RequestBody Cousine Cousine) {
 

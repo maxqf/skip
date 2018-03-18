@@ -63,28 +63,4 @@ public class ProductController {
 
 		return ResponseEntity.ok().build();
 	}
-
-	/*@PutMapping("/Product/{id}")
-	public Product updateProduct(@PathVariable(value = "id") Long ProductId,
-			@Valid @RequestBody Product ProductDetails) {
-
-		Product Product = ProductRepository.findById(ProductId)
-				.orElseThrow(() -> new ResourceNotFoundException("Product", "id", ProductId));
-
-		// Product.setTitle(ProductDetails.getTitle());
-		// Product.setContent(ProductDetails.getContent());
-
-		Product updatedProduct = ProductRepository.save(Product);
-		return updatedProduct;
-	}*/
-
-	/*@DeleteMapping("/Product/{id}")
-	public ResponseEntity<?> deleteProduct(@PathVariable(value = "id") Long ProductId) {
-		Product Product = ProductRepository.findById(ProductId)
-				.orElseThrow(() -> new ResourceNotFoundException("Product", "id", ProductId));
-
-		ProductRepository.delete(Product);
-
-		return ResponseEntity.ok().build();
-	}*/
 }

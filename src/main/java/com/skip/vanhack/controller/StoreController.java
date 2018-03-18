@@ -63,9 +63,7 @@ public class StoreController {
 	public ResponseEntity<?> createStoreList(@Valid @RequestBody List<Store> ListOfStores) {
 
 		for (Store store : ListOfStores) {
-			try {
-				/*Optional<Cousine> cousine = CousineRepository.findById(store.getCousineId());
-				store.setCousineId(cousine.g);*/
+			try {			
 				StoreRepository.save(store);
 			} catch (Exception e) {
 				new CustomValidationException("Store", "id",
